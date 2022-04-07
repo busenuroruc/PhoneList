@@ -10,8 +10,14 @@ class ContactModel extends Model
 {
     use HasFactory, Notifiable;
     protected $fillable = [
+        'user_id',
+        'type',
         'name',
-        'phone',
+        'content',
     ];
+
+    public function getAddress(){
+        return $this->hasMany(Address::class);
+    }
 }
 
